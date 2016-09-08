@@ -1,0 +1,64 @@
+/************************************
+***********Header********************
+************************************/
+.header{
+	padding:5px;
+	background-color:#000;
+	border-bottom:2px solid #000;
+	-webkit-box-shadow:0 1px 9px #000;
+	box-shadow:0 1px 9px #000;
+	width: 100%;
+}
+/************************************
+***********body**********************
+************************************/
+body {
+    font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+	background-color:green;
+}
+.active{
+	background-color:green;
+	color:white  !important;
+}  
+.sidenav .closebtn {
+    text-align: right;
+}
+.sidenav .closebtn:hover {
+    background-color:transparent  !important;
+}
+textarea{
+    width: 100%;
+    padding: 20px;
+    background: #F5F5F5;
+    border: 2px solid #F5F5F5;
+
+}
+textarea:focus,textarea:hover{
+    border-bottom: 2px solid black
+}
