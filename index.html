@@ -35,13 +35,13 @@
 				<div class = "col-md-6">
 					<div class = "form-header"><span>Register</span></div>
 					<div class = "form-content">
-						<input class = "form-input" type = "text" placeholder = "Enter username" >
-						<input class = "form-input" type = "email" placeholder = "Enter Email" >
-						<input class = "form-input" type = "tel" placeholder = "Enter Phone number" >
-						<input class = "form-input" type = "text" placeholder = "Enter password" >
-						<select class = "form-input" >
-							<option>Select occupation</option>
-							<option>Farmer</option>
+					<form name="register" action="register.php" method="post">
+						<input class = "form-input" type = "text" name = "uname" required="required" placeholder = "Enter username" >
+						<input class = "form-input" type = "email" name = "email" required="required" placeholder = "Enter Email" >
+						<input class = "form-input" type = "tel" name = "pno" required="required" placeholder = "Enter Phone number" >
+						<input class = "form-input" type = "text" name = "pass" placeholder = "Enter password" required="required">
+						<select class = "form-input" name = "occupation" >
+							<option >Farmer</option>
 							<option>Dealer</option>
 							<option>Industrialists</option>
 						</select>
@@ -51,12 +51,17 @@
 							</tr>
 						</table>
 					</div>
-					<div class = "form-footer"><button><span style = "opacity:1;color:black">Create Account</span></button></div>
+					<div class = "form-footer"><button type="submit"><span style = "opacity:1;color:black">Create Account</span></button></div>
+					</form>
 				</div>
 				<div class = "col-md-3">
 				</div>
 			</div>
 		</div>
+		<br><br><br>
 	</section>
+	<footer>
+		All rights are reserved by team My-Agro &copy;
+	</footer>
 </body>
 </html>

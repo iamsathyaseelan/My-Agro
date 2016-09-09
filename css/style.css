@@ -7,7 +7,7 @@
 	border-bottom:2px solid #000;
 	-webkit-box-shadow:0 1px 9px #000;
 	box-shadow:0 1px 9px #000;
-	opacity:0.5;
+	//**opacity:0.5;*//
 	text-align:center;
 }
 .header .logo{
@@ -17,20 +17,20 @@
 /************************************
 ***********body**********************
 ************************************/
-body{
+/*body{
 	background-image: url(../img/green-revolution.jpg);
 	background-repeat:no-repeat;
 	background-size: 100% 100%;
 	background-attachment: fixed;
 	background-position: center;
-}
+}*/
 a,a:hover{
-	color:white;
+	color:black;
 	text-decoration:none;
 }
 .form-header{
 	background-color:black;
-	opacity:0.5;
+	/*opacity:0.5;*/
 	color:white;
 	font-size:24px;
 	padding:5px;
@@ -38,7 +38,7 @@ a,a:hover{
 }
 .form-footer{
 	background-color:black;
-	opacity:0.5;
+	/*opacity:0.5;*/
 	color:white;
 	font-size:18px;
 	padding:10px;
@@ -46,7 +46,7 @@ a,a:hover{
 }
 .form-content{
 	border:5px solid black;
-	opacity:0.5;
+	/*opacity:0.5;**/
 	padding:5px;
 	text-align:center;
 }
@@ -60,4 +60,10 @@ a,a:hover{
 	width:95%;
 	padding:10px;
 	margin:5px;
+}
+footer{
+	background:black ;
+	color:white ;
+	padding :20px;
+	text-align:center;
 }

@@ -2,7 +2,7 @@
 //Docs at http://simpleweatherjs.com
 $(document).ready(function() {
   $.simpleWeather({
-    location: 'Erode, IN',
+    location: 'Kangayam, IN',
     woeid: '',
     unit: 'f',
     success: function(weather) {
