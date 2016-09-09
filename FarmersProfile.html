@@ -10,6 +10,7 @@
 	    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<script src="js/prefixfree.min.js"></script>
 		<link rel="stylesheet" href="css/ProfileStyle.css">
 	</head><!--/head-->
 	<body>
@@ -74,10 +75,12 @@
 					<div class="col-md-6">
 						<div class="panel panel-default">
 							<div class="panel-heading">
-								<h3>Weather<small> - 3  days</small></h3>
+								<h3>Weather</h3>
 							</div>
 							<div class="panel-body">
-								
+								<div id="weather"></div>
+								<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js'></script>
+								<script src="js/index.js"></script>
 							</div>
 							<div class="panel-footer text-center">
 								<button class="btn btn-primary">View detailed report</button>
@@ -145,10 +148,14 @@
 								<h3>mini notifications <span class="badge">5</span></h3>
 							</div>
 							<div class="panel-body">
-									
+								<a href="#">Someone send you an follow request</a><br>
+								<a href="#">Someone accept you an follow request</a><br>
+								<a href="#">Someone send you an follow request</a><br>
+								<a href="#">Someone send you an follow request</a><br>
+								<a href="#">Someone send you an follow request</a><br>
 							</div>
 							<div class="panel-footer text-center">
-								<button class="btn btn-primary">View detail</button>
+								<button class="btn btn-primary">Show all</button>
 							</div>
 						</div>
 					</div>
