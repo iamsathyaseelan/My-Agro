@@ -14,6 +14,11 @@
 		<link rel="stylesheet" href="css/ProfileStyle.css">
 	</head><!--/head-->
 	<body>
+		<script>
+			$(document).ready(function(){
+				load('CheckLogin.php');
+			});
+		</script>
 		<div class="header navbar-fixed-top">
 			<table>
 				<tr>
@@ -27,7 +32,7 @@
 			</table>
 		</div>		
 		<div id="mySidenav" class="sidenav">
-			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="glyphicon glyphicon-off"></i></a>
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="glyphicon glyphicon-minus"></i></a>
 			<a href="#" class="active"><i class="glyphicon glyphicon-home"></i>&nbsp;Home</a>
 			<a href="#"><i class="glyphicon glyphicon-user"></i>&nbsp;Profile</a>
 			<a href="#"><i class="glyphicon glyphicon-king"></i>&nbsp;Status</a>
@@ -35,6 +40,7 @@
 			<a href="#"><i class="glyphicon glyphicon-envelope"></i>&nbsp;Chat</a>
 			<a href="#"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;Climate</a>
 			<a href="#"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;Cart</a>
+			<a href="Logout.php"><i class="glyphicon glyphicon-off"></i>&nbsp;Logout</a>
 		</div>
 		<section class="farmer-progress">
 			<div class="container">

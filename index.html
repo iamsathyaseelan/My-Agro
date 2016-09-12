@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>My agro - Login</title>
+    <title>My Agro-Registration</title>
 	<link href='img/favicon.png' rel='icon'>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
@@ -17,7 +17,7 @@
 <body>
 	<section class = "header">
 		<div class = "container">
-			<div class = "row">
+			<div class = "row">				..
 				<div class = "col-md-12 logo">
 					<center><img src="img/logo.png"></center>
 				</div>
@@ -33,25 +33,32 @@
 				<div class = "col-md-3">
 				</div>
 				<div class = "col-md-6">
-					<div class = "form-header"><span>Login</span></div>
-					<form action="login.php" method="post">
-						<div class = "form-content">
-							<input class = "form-input" type = "email" name = "email" required="required" placeholder = "Enter Email" >
-							<input class = "form-input" type = "password" name = "pass" placeholder = "Enter password" required="required">
-							<table>
-								<tr>
-									<td style = "color:black;width:100%;"><a href = "index.html">Create account</a></td>
-								</tr>
-							</table>
-						</div>
-						<div class = "form-footer"><button type="submit"><span style = "opacity:1;color:black">Login</span></button></div>
+					<div class = "form-header"><span>Register</span></div>
+					<div class = "form-content">
+					<form name="register" action="register.php" method="post">
+						<input class = "form-input" type = "text" name = "uname" required="required" placeholder = "Enter username" >
+						<input class = "form-input" type = "email" name = "email" required="required" placeholder = "Enter Email" >
+						<input class = "form-input" type = "tel" name = "pno" required="required" placeholder = "Enter Phone number" >
+						<input class = "form-input" type = "password" name = "pass" placeholder = "Enter password" required="required">
+						<select class = "form-input" name = "occupation" >
+							<option >Farmer</option>
+							<option>Dealer</option>
+							<option>Industrialists</option>
+						</select>
+						<table>
+							<tr>
+								<td style = "color:white;width:100%;"><a href = "login.html">Already Have an account?</a></td>
+							</tr>
+						</table>
+					</div>
+					<div class = "form-footer"><button type="submit"><span style = "opacity:1;color:black">Create Account</span></button></div>
 					</form>
 				</div>
 				<div class = "col-md-3">
 				</div>
 			</div>
 		</div>
-		<br><br><br><br><br><br><br><br><br>
+		<br><br><br>
 	</section>
 	<footer>
 		All rights are reserved by team My-Agro &copy;

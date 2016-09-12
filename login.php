@@ -1,3 +1,40 @@
+<?php
+	require_once("db/db.php");
+	session_start();
+	$result="";
+	$email=$_POST["email"];
+	$pass=$_POST["pass"];
+	$sql="SELECT * FROM `register` where email='".$email."' and pass='".$pass."'";
+	$select=mysql_query($sql);
+	$count=mysql_num_rows($select);
+	if($count>0)
+	{
+		$_SESSION['email'] = $email;
+		$_SESSION['pass'] = $pass;
+		$result='<div class="alert alert-success">Success ! Please wait....</div>';
+		while ($row=mysql_fetch_array($select))
+		{
+			$occupation=$row['occupation'];
+			if($occupation=="Industrialists")
+			{
+				header('Location: IndustrialistsProfile.html');
+			}
+			if($occupation=="Farmer")
+			{
+				header('Location: FarmersProfile.html');
+			}
+			if($occupation=="Dealer")
+			{
+				header('Location: DealersProfile.html');
+			}
+		}
+	}
+	else
+	{
+		$result='<div class="alert alert-danger">Failed ! Wrong email or password.</div>
+				<p>Would you like to <a href="login.html">Login?</a></p>';
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,28 +70,12 @@
 				<div class = "col-md-3">
 				</div>
 				<div class = "col-md-6">
-					<div class = "form-header"><span>Login</span></div>
-					<form action="login.php" method="post">
-						<div class = "form-content">
-							<input class = "form-input" type = "email" name = "email" required="required" placeholder = "Enter Email" >
-							<input class = "form-input" type = "password" name = "pass" placeholder = "Enter password" required="required">
-							<table>
-								<tr>
-									<td style = "color:black;width:100%;"><a href = "index.html">Create account</a></td>
-								</tr>
-							</table>
-						</div>
-						<div class = "form-footer"><button type="submit"><span style = "opacity:1;color:black">Login</span></button></div>
-					</form>
+					<?php echo $result; ?>
 				</div>
 				<div class = "col-md-3">
 				</div>
 			</div>
 		</div>
-		<br><br><br><br><br><br><br><br><br>
 	</section>
-	<footer>
-		All rights are reserved by team My-Agro &copy;
-	</footer>
 </body>
 </html>
