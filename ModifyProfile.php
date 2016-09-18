@@ -1,0 +1,145 @@
+<?php
+session_start();
+require_once("db/db.php");
+if(isset($_POST["update"])){
+ 	$sid=$_SESSION["id"];
+	$fname=$_POST["fname"];
+	$lname=$_POST["lname"];
+	$add1=$_POST["add1"];
+	$add2=$_POST["add2"];
+	$dist=$_POST["dist"];
+	$state=$_POST["state"];
+	$pin=$_POST["pin"];
+	$acres=$_POST["acres"];
+	$cul=$_POST["cul"];
+	$amt=$_POST["amt"];
+	$startdate=$_POST["startdate"];
+	$enddate=$_POST["enddate"];
+	$insert = mysql_query("UPDATE profile SET 
+		fname='".$fname."',lname='".$lname."',addr1='".$add1."',addr2='".$add2."',dist='".$dist."',state='".$state."',pin=$pin,acres=$acres,
+		cul=$cul,amt=$amt,startdate='".$startdate."',enddate='".$enddate."' WHERE uid=$sid");
+		
+}
+$sid=$_SESSION["id"];
+$sql = mysql_query("SELECT * FROM profile WHERE uid='$sid' LIMIT 1");
+$profileMatch = mysql_num_rows($sql); // count the output amount
+if ($profileMatch > 0){
+	while($row=mysql_fetch_array($sql))
+	{
+		$sid1=$_SESSION["id"];
+		$fname1=$row["fname"];
+		$lname1=$row["lname"];
+		$add11=$row["addr1"];
+		$add21=$row["addr2"];
+		$dist1=$row["dist"];
+		$state1=$row["state"];
+		$pin1=$row["pin"];
+		$acres1=$row["acres"];
+		$cul1=$row["cul"];
+		$amt1=$row["amt"];
+		$startdate1=$row["startdate"];
+		$enddate1=$row["enddate"];
+		$pic1=$row["profilepic"];
+	}
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta name="description" content="">
+	    <meta name="author" content="">
+	    <title>My Agro-Registration</title>
+		<link href='img/favicon.png' rel='icon'>
+	    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<script src="js/prefixfree.min.js"></script>
+		<link rel="stylesheet" href="css/ProfileStyle.css">
+	</head><!--/head-->
+	<body>
+		<script>
+			$(document).ready(function(){
+				load('CheckLogin.php');
+			});
+		</script>
+		<div class="header navbar-fixed-top">
+			<table>
+				<tr>
+					<td style = "color:white;width:1080px"><img src="img/logo.png"></td>
+					<td style = "color:black;" class="text-right">
+						<button type="button" onclick="openNav()">
+							<i style="font-size:20px;" class="glyphicon glyphicon-menu-hamburger"></i>
+						</button>
+					</td>
+				</tr>
+			</table>
+		</div>		
+		<div id="mySidenav" class="sidenav">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="glyphicon glyphicon-minus"></i></a>
+			<a href="#" class="active"><i class="glyphicon glyphicon-home"></i>&nbsp;Home</a>
+			<a href="Profile.php"><i class="glyphicon glyphicon-user"></i>&nbsp;Profile</a>
+			<a href="#"><i class="glyphicon glyphicon-king"></i>&nbsp;Status</a>
+			<a href="#"><i class="glyphicon glyphicon-search"></i>&nbsp;Search</a>
+			<a href="#"><i class="glyphicon glyphicon-envelope"></i>&nbsp;Chat</a>
+			<a href="#"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;Climate</a>
+			<a href="#"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;Cart</a>
+			<a href="Logout.php"><i class="glyphicon glyphicon-off"></i>&nbsp;Logout</a>
+		</div>
+	<section>
+		<div class = "container">
+			<div class = "row">
+				<div class = "col-md-12">
+					<br><br><br><br>
+				</div>
+				<form name="" action="" enctype="multipart/form-data" method="post">
+				<div class = "col-md-6">
+					<h3>Personal details </h3>
+					<div class = "form-content">
+							<input class = "form-input-2" type = "text" name = "fname" value="<?php echo $fname1; ?>" placeholder = "Enter First name" >
+							<input class = "form-input-2" type = "text" name = "lname" value="<?php echo $lname1; ?>" placeholder = "Enter Last name" >
+							<input class = "form-input" type = "text" name = "add1" value="<?php echo $add11; ?>" placeholder = "Enter Address line 1">
+							<input class = "form-input" type = "text" name = "add2" value="<?php echo $add21; ?>" placeholder = "Enter Address line 2">
+							<input class = "form-input" type = "text" name = "dist" value="<?php echo $dist1; ?>" placeholder = "Enter district name ">
+							<input class = "form-input" type = "text" name = "state" value="<?php echo $state1; ?>" placeholder = "Enter state name ">
+							<input class = "form-input" type = "text" name = "pin" value="<?php echo $pin1; ?>" placeholder = "Enter PIN code ">
+					</div>
+				</div>
+				<div class = "col-md-6">
+					<h3>Agriculture details </h3>
+					<div class = "form-content">
+							<input class = "form-input-2" type = "text" name = "acres" value="<?php echo $acres1; ?>" placeholder = "Number of acres" >
+							<input class = "form-input-2" type = "text" name = "cul" value="<?php echo $cul1; ?>" placeholder = "Acres to cultivate" >
+							<input class = "form-input" type = "text" name = "amt" value="<?php echo $amt1; ?>" placeholder = "Target amount to earn-this year ">
+							<input class = "form-input" type = "text" name = "startdate" value="<?php echo $startdate1; ?>" placeholder = "Target starts from">
+							<input class = "form-input" type = "text" name = "enddate" value="<?php echo $enddate1; ?>" placeholder = "Target ended at">
+					</div>
+				</div>
+				<div class ="col-md-12 text-right">
+					<div class="btn-group">
+						<a href="Profile.php" role="button" class="btn btn-success">Back to profile</a>
+						<button type="submit" name="update" class="btn btn-primary">Update details</button>
+					</div>
+				</div>
+				</form>
+			</div>
+		</div>
+		<br><br><br>
+	</section>
+	<footer>
+		All rights are reserved by team My-Agro &copy;
+	</footer>
+	<script>
+		function openNav() {
+		    document.getElementById("mySidenav").style.width = "250px";
+		    document.getElementById("main").style.marginLeft = "250px";
+		}
+
+		function closeNav() {
+		    document.getElementById("mySidenav").style.width = "0";
+		    document.getElementById("main").style.marginLeft= "0";
+		}
+	</script>
+</body>
+</html>

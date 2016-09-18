@@ -162,7 +162,38 @@ i {
   display: inline-block;
   border-radius: 5px;
 }
-
+/******edit profile******/
+.form-input{padding:10px;width :99%;border:2px solid black ;background:none ;margin:10px 0px;}
+.form-input-2{padding:10px;width :49%;border:2px solid black ;background:none ;margin:10px 0px;}
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+/**profile**/
+.Suggestions{background :black ;width :100%;padding:5px;color :white ;}
+/****chat**/
+.msgs{
+	min-height:350px;
+}
+.msg-box{
+	width:80%;
+	padding:5px;
+	}
 /************************************
 *********footer  ********************
 ************************************/
@@ -171,5 +202,4 @@ footer {
 	padding:20px;
 	color :white ;
 	text-align:center;
-	
 }

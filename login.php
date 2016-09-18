@@ -15,6 +15,7 @@
 		while ($row=mysql_fetch_array($select))
 		{
 			$occupation=$row['occupation'];
+			$_SESSION['id']=$row['id'];
 			if($occupation=="Industrialists")
 			{
 				header('Location: IndustrialistsProfile.html');
