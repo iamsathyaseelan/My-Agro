@@ -23,7 +23,7 @@ if(isset($_POST["profile"])){
 	}
 	else
 	{
-	$errors= array();
+		$errors= array();
 		$file_name = $_FILES['profilepic']['name'];
 		$file_size =$_FILES['profilepic']['size'];
 		$file_tmp =$_FILES['profilepic']['tmp_name'];
@@ -90,11 +90,11 @@ if(isset($_POST["profile"])){
 			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="glyphicon glyphicon-minus"></i></a>
 			<a href="#" class="active"><i class="glyphicon glyphicon-home"></i>&nbsp;Home</a>
 			<a href="Profile.php"><i class="glyphicon glyphicon-user"></i>&nbsp;Profile</a>
-			<a href="#"><i class="glyphicon glyphicon-king"></i>&nbsp;Status</a>
+			<a href="bid/index.php"><i class="glyphicon glyphicon-king"></i>&nbsp;Bid</a>
 			<a href="#"><i class="glyphicon glyphicon-search"></i>&nbsp;Search</a>
 			<a href="#"><i class="glyphicon glyphicon-envelope"></i>&nbsp;Chat</a>
 			<a href="#"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;Climate</a>
-			<a href="#"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;Cart</a>
+			<a href="Ecommerce/index.php"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;E-commerce</a>
 			<a href="Logout.php"><i class="glyphicon glyphicon-off"></i>&nbsp;Logout</a>
 		</div>
 	<section>

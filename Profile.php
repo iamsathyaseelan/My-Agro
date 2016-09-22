@@ -36,8 +36,9 @@ if ($profileMatch > 0){
 }
 else
 {
-	$sid1=$fname1=$lname1=$add11=$acres1=$cul1=$amt1=$startdate1=$enddate1="Data not found";
-	$add21=$dist1=$state1=$pin1="";
+	$sid1=$fname1=$add11=$acres1=$cul1=$amt1=$startdate1=$enddate1="Data not found";
+	$add21=$lname1=$dist1=$state1=$pin1="";
+	$pic1="img/img.png";
 }
 ?>
 <!DOCTYPE html>
@@ -64,9 +65,9 @@ else
 		<div class="header navbar-fixed-top">
 			<table width="100%">
 				<tr>
-					<td style = "color:white;width:100%"><img src="img/logo.png"></td>
+					<td width="100%"><img src="img/logo.png"></td>
 					<td style = "color:black;" class="text-right">
-						<button type="button" onClick="openNav()">
+						<button type="button" onclick="openNav()">
 							<i style="font-size:20px;" class="glyphicon glyphicon-menu-hamburger"></i>
 						</button>
 					</td>
@@ -74,14 +75,13 @@ else
 			</table>
 		</div>		
 		<div id="mySidenav" class="sidenav">
-			<a href="javascript:void(0)" class="closebtn" onClick="closeNav()"><i class="glyphicon glyphicon-minus"></i></a>
 			<a href="#"><i class="glyphicon glyphicon-home"></i>&nbsp;Home</a>
 			<a href="Profile.php" class="active"><i class="glyphicon glyphicon-user"></i>&nbsp;Profile</a>
-			<a href="#"><i class="glyphicon glyphicon-king"></i>&nbsp;Status</a>
+			<a href="bid/index.php"><i class="glyphicon glyphicon-king"></i>&nbsp;Bid</a>
 			<a href="#"><i class="glyphicon glyphicon-search"></i>&nbsp;Search</a>
 			<a href="PublicChat.php"><i class="glyphicon glyphicon-envelope"></i>&nbsp;Chat</a>
 			<a href="#"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;Climate</a>
-			<a href="#"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;Cart</a>
+			<a href="Ecommerce/index.php"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;E-commerce</a>
 			<a href="Logout.php"><i class="glyphicon glyphicon-off"></i>&nbsp;Logout</a>
 		</div>
 		<section>
@@ -109,7 +109,7 @@ else
 											</tr>
 											<tr>
 												<td><h4>Address</h4></td>
-												<td><p><?php echo $add11." ,<br>".$add21." ,<br>".$dist1." ,<br>".$state1." ,<br>".$pin1;?></P></td>
+												<td><p><?php echo $add11." <br>".$add21." <br>".$dist1." <br>".$state1." <br>".$pin1;?></P></td>
 											</tr>
 											<tr>
 												<td><h4>Email</h4></td>
@@ -152,7 +152,7 @@ else
 									</div>
 								</div>
 								<div class="panel-footer text-right">
-									<a role="button" href="ModifyProfile.php" class="btn btn-primary">Edit</a>
+									<a role="button" href="EditProfile.php" class="btn btn-primary">Edit</a>
 								</div>
 							</div>
 						</div>

@@ -42,6 +42,10 @@ if ($profileMatch > 0){
 		$pic1=$row["profilepic"];
 	}
 }
+else
+{
+	$sid1=$fname1=$add11=$acres1=$cul1=$amt1=$startdate1=$enddate1=$add21=$lname1=$dist1=$state1=$pin1="";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,9 +71,9 @@ if ($profileMatch > 0){
 		<div class="header navbar-fixed-top">
 			<table>
 				<tr>
-					<td style = "color:white;width:100%"><img src="img/logo.png"></td>
+					<td style = "color:white;width:1080px"><img src="img/logo.png"></td>
 					<td style = "color:black;" class="text-right">
-						<button type="button" onClick="openNav()">
+						<button type="button" onclick="openNav()">
 							<i style="font-size:20px;" class="glyphicon glyphicon-menu-hamburger"></i>
 						</button>
 					</td>
@@ -77,14 +81,14 @@ if ($profileMatch > 0){
 			</table>
 		</div>		
 		<div id="mySidenav" class="sidenav">
-			<a href="javascript:void(0)" class="closebtn" onClick="closeNav()"><i class="glyphicon glyphicon-minus"></i></a>
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="glyphicon glyphicon-minus"></i></a>
 			<a href="#" class="active"><i class="glyphicon glyphicon-home"></i>&nbsp;Home</a>
 			<a href="Profile.php"><i class="glyphicon glyphicon-user"></i>&nbsp;Profile</a>
-			<a href="#"><i class="glyphicon glyphicon-king"></i>&nbsp;Status</a>
+			<a href="bid/index.php"><i class="glyphicon glyphicon-king"></i>&nbsp;Bid</a>
 			<a href="#"><i class="glyphicon glyphicon-search"></i>&nbsp;Search</a>
 			<a href="#"><i class="glyphicon glyphicon-envelope"></i>&nbsp;Chat</a>
 			<a href="#"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;Climate</a>
-			<a href="#"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;Cart</a>
+			<a href="Ecommerce/index.php"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;E-commerce</a>
 			<a href="Logout.php"><i class="glyphicon glyphicon-off"></i>&nbsp;Logout</a>
 		</div>
 	<section>
@@ -125,7 +129,7 @@ if ($profileMatch > 0){
 				</form>
 			</div>
 		</div>
-		<br><br><br>
+		<br>
 	</section>
 	<footer>
 		All rights are reserved by team My-Agro &copy;
