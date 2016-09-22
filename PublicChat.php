@@ -40,9 +40,9 @@ if(isset($_POST["msg"])){
 		<div class="header navbar-fixed-top">
 			<table>
 				<tr>
-					<td style = "color:white;width:1080px"><img src="img/logo.png"></td>
+					<td style = "color:white;width:100%"><img src="img/logo.png"></td>
 					<td style = "color:black;" class="text-right">
-						<button type="button" onclick="openNav()">
+						<button type="button" onClick="openNav()">
 							<i style="font-size:20px;" class="glyphicon glyphicon-menu-hamburger"></i>
 						</button>
 					</td>
@@ -50,7 +50,7 @@ if(isset($_POST["msg"])){
 			</table>
 		</div>		
 		<div id="mySidenav" class="sidenav">
-			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="glyphicon glyphicon-minus"></i></a>
+			<a href="javascript:void(0)" class="closebtn" onClick="closeNav()"><i class="glyphicon glyphicon-minus"></i></a>
 			<a href="#" class="active"><i class="glyphicon glyphicon-home"></i>&nbsp;Home</a>
 			<a href="Profile.php"><i class="glyphicon glyphicon-user"></i>&nbsp;Profile</a>
 			<a href="#"><i class="glyphicon glyphicon-king"></i>&nbsp;Status</a>
