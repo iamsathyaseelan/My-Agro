@@ -57,7 +57,7 @@ if($_POST)
 					<tr>
 						<td style="width:50%;text-align:left;"><img src="img/logo.png" alt="Karikkadai" class="logo" /></td>
 						<td style="width:25%"><b>+91 99 76 016 102</b></td>
-						<td style="width:25%"><b>info@karikkadai.com</b></td>
+						<td style="width:25%"><b>My agro</b></td>
 					</tr>
 				</table>
 				<div><br><br>Your Order Id :'.$randomString.'<br></div>
@@ -147,7 +147,7 @@ if($_POST)
                     	<div class="col-md-9">
                         	<ul>
                         		<li><a href="#"><i class="fa fa-phone"></i> +91 99 76 01 102</a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i> info@karikkadai.com</a></li>
+								<li><a href="#"><i class="fa fa-envelope"></i> My agro</a></li>
                             </ul>
                         </div>
                         <div class="col-md-3 text-center social-icons">

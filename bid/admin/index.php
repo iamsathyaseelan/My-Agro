@@ -1,3 +1,11 @@
+<?php
+session_start();
+if($_SESSION['email']==""|| $_SESSION['pass']=="") {
+    header("location: .php"); 
+    exit();
+}
+$sid=$_SESSION["id"];
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -17,7 +25,7 @@
 		<div class="header navbar-fixed-top">
 			<table>
 				<tr>
-					<td style = "color:white;width:1080px"><img src="../../img/logo.png"></td>
+					<td style = "color:white;width:100%"><img src="../../img/logo.png"></td>
 					<td style = "color:black;" class="text-right">
 						<button type="button" onClick="openNav()">
 							<i style="font-size:20px;" class="glyphicon glyphicon-menu-hamburger"></i>
@@ -29,13 +37,13 @@
 		<div id="mySidenav" class="sidenav">
 			<a href="javascript:void(0)" class="closebtn" onClick="closeNav()"><i class="glyphicon glyphicon-minus"></i></a>
 			<a href="#"><i class="glyphicon glyphicon-home"></i>&nbsp;Home</a>
-			<a href="Profile.php"><i class="glyphicon glyphicon-user"></i>&nbsp;Profile</a>
-			<a href="#"><i class="glyphicon glyphicon-king"></i>&nbsp;Status</a>
+			<a href="../../Profile.php"><i class="glyphicon glyphicon-user"></i>&nbsp;Profile</a>
+			<a href="../index.php"  class="active"><i class="glyphicon glyphicon-king"></i>&nbsp;Bid</a>
 			<a href="#"><i class="glyphicon glyphicon-search"></i>&nbsp;Search</a>
 			<a href="../../PublicChat.php"><i class="glyphicon glyphicon-envelope"></i>&nbsp;Chat</a>
 			<a href="#"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;Climate</a>
-			<a href="Ecommerce.html" class="active"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;E-commerce</a>
-			<a href="Logout.php"><i class="glyphicon glyphicon-off"></i>&nbsp;Logout</a>
+			<a href="../../Ecommerce/index.php"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;E-commerce</a>
+			<a href="../../Logout.php"><i class="glyphicon glyphicon-off"></i>&nbsp;Logout</a>
 		</div>
 		<section>
 			<div class="container">
@@ -50,32 +58,40 @@
 						<br><br>
 					</div>
 					<div class="col-md-9">
-						<table style="width:100%; text-align:center;" border="2" >
+						<table class="table" >
 							<tr>
-								<td><b>ID</b></td>
 								<td><b>Name</b></td>
-								<td><b>Address</b></td>
-								<td><b>Email</b></td>
-								<td><b>Phone Number</b></td>
+								<td><b>Price</b></td>
+								<td><b>quanity</b></td>
+								<td><b>Description</b></td>
+								<td><b>Go</b></td>
 							</tr>
 							<?php
 								include('../../db/db.php');
-								$sql = mysql_query("SELECT * FROM orders where process='new'");
-								while ($row = mysql_fetch_array($sql))
+								$sql = mysql_query("SELECT * FROM bidproducts where postedby=$sid");
+								$count=mysql_num_rows($sql);
+								echo "<h3>You have posted ".$count." Products";
+								if($count>0)
 								{
-									$name = $row["name"];
-									$addr = $row["addr"];
-									$email = $row["email"];
-									$tel = $row["tel"];
-									$id = $row["id"];
-								echo "
-									<tr>
-										<td>".$id."</td>
-										<td>".$name."</td>
-										<td>".$addr."</td>
-										<td>".$email."</td>
-										<td>".$tel."</td>
-									</tr>";
+									while ($row = mysql_fetch_array($sql))
+									{
+										$id = $row["id"];
+										$name = $row["name"];
+										$descr = $row["descr"];
+										$quantity = $row["quantity"];
+										$price = $row["price"];
+										echo '
+											<td>'.$name.'</td>
+											<td>'.$price.'</td>
+											<td>'.$quantity.'</td>
+											<td>'.$descr.'</td>
+											<td><a href="viewDetails.php?proid='.$id.'" role="button" class="btn btn-success">Go</a></td>
+										';
+									}
+								}
+								else
+								{
+									echo "No products found";
 								}
 							?>
 						</table>

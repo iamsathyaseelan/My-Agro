@@ -91,7 +91,7 @@ if (isset($_POST['add'])) {
 		<div class="header navbar-fixed-top">
 			<table>
 				<tr>
-					<td style = "color:white;width:1080px"><img src="../../img/logo.png"></td>
+					<td style = "color:white;width:100%"><img src="../../img/logo.png"></td>
 					<td style = "color:black;" class="text-right">
 						<button type="button" onClick="openNav()">
 							<i style="font-size:20px;" class="glyphicon glyphicon-menu-hamburger"></i>
@@ -103,13 +103,13 @@ if (isset($_POST['add'])) {
 		<div id="mySidenav" class="sidenav">
 			<a href="javascript:void(0)" class="closebtn" onClick="closeNav()"><i class="glyphicon glyphicon-minus"></i></a>
 			<a href="#"><i class="glyphicon glyphicon-home"></i>&nbsp;Home</a>
-			<a href="Profile.php"><i class="glyphicon glyphicon-user"></i>&nbsp;Profile</a>
-			<a href="#"><i class="glyphicon glyphicon-king"></i>&nbsp;Status</a>
+			<a href="../../Profile.php"><i class="glyphicon glyphicon-user"></i>&nbsp;Profile</a>
+			<a href="../index.php"  class="active"><i class="glyphicon glyphicon-king"></i>&nbsp;Bid</a>
 			<a href="#"><i class="glyphicon glyphicon-search"></i>&nbsp;Search</a>
 			<a href="../../PublicChat.php"><i class="glyphicon glyphicon-envelope"></i>&nbsp;Chat</a>
 			<a href="#"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;Climate</a>
-			<a href="Ecommerce.html" class="active"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;E-commerce</a>
-			<a href="Logout.php"><i class="glyphicon glyphicon-off"></i>&nbsp;Logout</a>
+			<a href="../../Ecommerce/index.php"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;E-commerce</a>
+			<a href="../../Logout.php"><i class="glyphicon glyphicon-off"></i>&nbsp;Logout</a>
 		</div>
 		<section>
 			<div class="container">
@@ -119,7 +119,6 @@ if (isset($_POST['add'])) {
 					</div>
 					<div class="col-md-3 sidenavbar">
 						<div style="background:black;padding:8px 8px;color:white;font-weight:bold;text-align:center;">MENU</div>
-						<a href="index.php"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;New Orders</a>
 						<a href="Addproducts.php"class="active"><i class="glyphicon glyphicon-plus-sign"></i>&nbsp;Add Products</a>
 						<a href="../index.php"><i class="glyphicon glyphicon-arrow-left"></i>&nbsp;Back</a>
 						<br><br>

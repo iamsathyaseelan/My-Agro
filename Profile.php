@@ -67,7 +67,7 @@ else
 				<tr>
 					<td width="100%"><img src="img/logo.png"></td>
 					<td style = "color:black;" class="text-right">
-						<button type="button" onclick="openNav()">
+						<button type="button" onClick="openNav()">
 							<i style="font-size:20px;" class="glyphicon glyphicon-menu-hamburger"></i>
 						</button>
 					</td>
@@ -75,10 +75,11 @@ else
 			</table>
 		</div>		
 		<div id="mySidenav" class="sidenav">
-			<a href="#"><i class="glyphicon glyphicon-home"></i>&nbsp;Home</a>
+			<a href="javascript:void(0)" class="closebtn" onClick="closeNav()"><i class="glyphicon glyphicon-minus"></i></a>
+			<a href="FarmersProfile.html"><i class="glyphicon glyphicon-home"></i>&nbsp;Home</a>
 			<a href="Profile.php" class="active"><i class="glyphicon glyphicon-user"></i>&nbsp;Profile</a>
 			<a href="bid/index.php"><i class="glyphicon glyphicon-king"></i>&nbsp;Bid</a>
-			<a href="#"><i class="glyphicon glyphicon-search"></i>&nbsp;Search</a>
+			<a href="Search.php"><i class="glyphicon glyphicon-search"></i>&nbsp;Search</a>
 			<a href="PublicChat.php"><i class="glyphicon glyphicon-envelope"></i>&nbsp;Chat</a>
 			<a href="#"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;Climate</a>
 			<a href="Ecommerce/index.php"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;E-commerce</a>

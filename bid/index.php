@@ -30,7 +30,7 @@ $sid=$_SESSION["id"];
 		<div class="header navbar-fixed-top">
 			<table>
 				<tr>
-					<td style = "color:white;width:1080px"><img src="../img/logo.png"></td>
+					<td style = "color:white;width:100%"><img src="../img/logo.png"></td>
 					<td style = "color:black;" class="text-right">
 						<button type="button" onClick="openNav()">
 							<i style="font-size:20px;" class="glyphicon glyphicon-menu-hamburger"></i>
@@ -43,11 +43,11 @@ $sid=$_SESSION["id"];
 			<a href="javascript:void(0)" class="closebtn" onClick="closeNav()"><i class="glyphicon glyphicon-minus"></i></a>
 			<a href="#"><i class="glyphicon glyphicon-home"></i>&nbsp;Home</a>
 			<a href="../Profile.php"><i class="glyphicon glyphicon-user"></i>&nbsp;Profile</a>
-			<a href="#"><i class="glyphicon glyphicon-king"></i>&nbsp;Status</a>
+			<a href="index.php"  class="active"><i class="glyphicon glyphicon-king"></i>&nbsp;Bid</a>
 			<a href="#"><i class="glyphicon glyphicon-search"></i>&nbsp;Search</a>
 			<a href="../PublicChat.php"><i class="glyphicon glyphicon-envelope"></i>&nbsp;Chat</a>
 			<a href="#"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;Climate</a>
-			<a href="../Ecommerce.html" class="active"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;E-commerce</a>
+			<a href="../Ecommerce/index.php"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;E-commerce</a>
 			<a href="../Logout.php"><i class="glyphicon glyphicon-off"></i>&nbsp;Logout</a>
 		</div>
 		<section>
@@ -59,8 +59,7 @@ $sid=$_SESSION["id"];
 					<div class="col-md-3 sidenavbar">
 						<div style="background:black;padding:8px 8px;color:white;font-weight:bold;text-align:center;">MENU</div>
 						<a href="admin/index.php"><i class="glyphicon glyphicon-tags"></i>&nbsp;Sell products</a>
-						<a href="#"><i class="glyphicon glyphicon-search"></i>&nbsp;Search</a>
-						<a href="PublicChat.php"><i class="glyphicon glyphicon-screenshot"></i>&nbsp;Checkout</a>
+						<a href="../FarmersProfile.html"><i class="glyphicon glyphicon-arrow-left"></i>&nbsp;Back</a>
 						<br><br>
 					</div>
 					<div class="col-md-9">
@@ -82,37 +81,44 @@ $sid=$_SESSION["id"];
 						<?php
 							include('../db/db.php');
 								
-							$sql_res=mysql_query("select * from bidproducts where postedby!=$sid limit 12 ");
-							while($row=mysql_fetch_array($sql_res))
+							$sql_res=mysql_query("select * from bidproducts where postedby!=$sid and completed='OnGoing'");
+							$count=mysql_num_rows($sql_res);
+							if($count>0)
 							{
-								$unit=$row['quantity'];
-								$descr=$row['descr'];
-								$img=$row['img'];
-								$id=$row['id'];
-								$userid=$row['postedby'];
-								$price=$row['price'];
-								$verified=$row['verified'];
-								if($verified=='no')
+								$sql_res=mysql_query("select * from bidproducts where postedby!=$sid LIMIT 12");
+								while($row=mysql_fetch_array($sql_res))
 								{
-									$disable="disabled";
-								}
-								else
-									$disable="";
-								echo '
-									<div class="col-md-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="'. $img .'" alt="'. $descr .'" class="img img-responsive"  title="'. $descr .'" />
-													<h4>Rs. '.$price.' &#x20b9; / '.$unit.'</h4>
-													<p>'.$descr.'</p>
-													<a class="btn btn-success '.$disable.'" role="button" href="viewandbid.php?proid='.$id.'"><i class="fa fa-shopping-cart"></i> Bid</a>
-												</div>
-											</div><br />
+									$unit=$row['quantity'];
+									$descr=$row['descr'];
+									$img=$row['img'];
+									$id=$row['id'];
+									$userid=$row['postedby'];
+									$price=$row['price'];
+									$verified=$row['verified'];
+									if($verified=='no')
+									{
+										$disable="disabled";
+									}
+									else
+										$disable="";
+									echo '
+										<div class="col-md-4">
+											<div class="product-image-wrapper">
+												<div class="single-products">
+													<div class="productinfo text-center">
+														<img src="'. $img .'" alt="'. $descr .'" class="img img-responsive"  title="'. $descr .'" />
+														<h4>Rs. '.$price.' &#x20b9; / '.$unit.'</h4>
+														<p>'.$descr.'</p>
+														<a class="btn btn-success '.$disable.'" role="button" href="viewandbid.php?proid='.$id.'"><i class="fa fa-shopping-cart"></i> Bid</a>
+													</div>
+												</div><br />
+											</div>
 										</div>
-									</div>
-								';
+									';
 								}
+							}
+							else
+								echo"No products found!";
 						?>
 					</div>
 				</div>

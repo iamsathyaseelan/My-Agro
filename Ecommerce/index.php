@@ -34,7 +34,7 @@ if (!isset($_SESSION["NoOfItemsInCart"]))
 		<div class="header navbar-fixed-top">
 			<table>
 				<tr>
-					<td style = "color:white;width:1080px"><img src="../img/logo.png"></td>
+					<td style = "color:white;width:100%"><img src="../img/logo.png"></td>
 					<td style = "color:black;" class="text-right">
 						<button type="button" onClick="openNav()">
 							<i style="font-size:20px;" class="glyphicon glyphicon-menu-hamburger"></i>
@@ -45,13 +45,13 @@ if (!isset($_SESSION["NoOfItemsInCart"]))
 		</div>		
 		<div id="mySidenav" class="sidenav">
 			<a href="javascript:void(0)" class="closebtn" onClick="closeNav()"><i class="glyphicon glyphicon-minus"></i></a>
-			<a href="#"><i class="glyphicon glyphicon-home"></i>&nbsp;Home</a>
+			<a href="../FarmersProfile.html"><i class="glyphicon glyphicon-home"></i>&nbsp;Home</a>
 			<a href="../Profile.php"><i class="glyphicon glyphicon-user"></i>&nbsp;Profile</a>
-			<a href="#"><i class="glyphicon glyphicon-king"></i>&nbsp;Status</a>
+			<a href="../bid/index.php"><i class="glyphicon glyphicon-king"></i>&nbsp;Bid</a>
 			<a href="#"><i class="glyphicon glyphicon-search"></i>&nbsp;Search</a>
 			<a href="../PublicChat.php"><i class="glyphicon glyphicon-envelope"></i>&nbsp;Chat</a>
 			<a href="#"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;Climate</a>
-			<a href="../Ecommerce.html" class="active"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;E-commerce</a>
+			<a href="../Ecommerce/index.php" class="active"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;E-commerce</a>
 			<a href="../Logout.php"><i class="glyphicon glyphicon-off"></i>&nbsp;Logout</a>
 		</div>
 		<section>
@@ -63,11 +63,11 @@ if (!isset($_SESSION["NoOfItemsInCart"]))
 					<div class="col-md-3 sidenavbar">
 						<div style="background:black;padding:8px 8px;color:white;font-weight:bold;text-align:center;">MENU</div>
 						<a href="admin/index.php"><i class="glyphicon glyphicon-tags"></i>&nbsp;Sell products</a>
-						<a href="Profile.php"><i class="glyphicon glyphicon-remove-sign"></i>&nbsp;Pesticide</a>
-						<a href="#"><i class="glyphicon glyphicon-grain"></i>&nbsp;Fertilizer</a>
-						<a href="#"><i class="glyphicon glyphicon-search"></i>&nbsp;Search</a>
+						<a href="Pesticide.php"><i class="glyphicon glyphicon-remove-sign"></i>&nbsp;Pesticide</a>
+						<a href="Fertilizer.php"><i class="glyphicon glyphicon-grain"></i>&nbsp;Fertilizer</a>
+						<a href="search.php"><i class="glyphicon glyphicon-search"></i>&nbsp;Search</a>
 						<a href="cart.php"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;Cart<span class="badge  pull-right" id="CartItems"><?php echo $_SESSION['NoOfItemsInCart'];?></span></a>
-						<a href="PublicChat.php"><i class="glyphicon glyphicon-screenshot"></i>&nbsp;Checkout</a>
+						<a href="checkout.php"><i class="glyphicon glyphicon-screenshot"></i>&nbsp;Checkout</a>
 						<br><br>
 					</div>
 					<div class="col-md-9">

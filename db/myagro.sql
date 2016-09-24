@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 22, 2016 at 03:09 PM
+-- Generation Time: Sep 24, 2016 at 01:29 AM
 -- Server version: 5.1.53
 -- PHP Version: 5.3.4
 
@@ -30,6 +30,7 @@ CREATE TABLE IF NOT EXISTS `bid` (
   `proid` int(10) NOT NULL,
   `bidderid` int(10) NOT NULL,
   `price` int(100) NOT NULL,
+  `posistion` varchar(100) NOT NULL DEFAULT 'NotSelected',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
@@ -37,9 +38,9 @@ CREATE TABLE IF NOT EXISTS `bid` (
 -- Dumping data for table `bid`
 --
 
-INSERT INTO `bid` (`id`, `proid`, `bidderid`, `price`) VALUES
-(1, 1, 7, 700),
-(2, 1, 9, 34);
+INSERT INTO `bid` (`id`, `proid`, `bidderid`, `price`, `posistion`) VALUES
+(1, 1, 7, 700, 'Winner'),
+(2, 1, 9, 34, 'Winner');
 
 -- --------------------------------------------------------
 
@@ -57,6 +58,8 @@ CREATE TABLE IF NOT EXISTS `bidproducts` (
   `postedby` int(100) NOT NULL,
   `img` varchar(100) NOT NULL,
   `verified` varchar(10) NOT NULL DEFAULT 'no',
+  `completed` varchar(100) NOT NULL DEFAULT '0',
+  `winnerId` int(10) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
@@ -64,8 +67,8 @@ CREATE TABLE IF NOT EXISTS `bidproducts` (
 -- Dumping data for table `bidproducts`
 --
 
-INSERT INTO `bidproducts` (`id`, `price`, `quantity`, `descr`, `name`, `dateadded`, `postedby`, `img`, `verified`) VALUES
-(1, 520, 2, 'hi', 'ssa@g.com', '2016-09-21 17:57:38', 7, 'img/748163754.jpg', 'yes');
+INSERT INTO `bidproducts` (`id`, `price`, `quantity`, `descr`, `name`, `dateadded`, `postedby`, `img`, `verified`, `completed`, `winnerId`) VALUES
+(1, 520, 2, 'hi', 'ssa@g.com', '2016-09-21 17:57:38', 7, 'img/748163754.jpg', 'yes', '1', 9);
 
 -- --------------------------------------------------------
 
