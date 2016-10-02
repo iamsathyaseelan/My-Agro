@@ -22,7 +22,7 @@
 			}
 			if($occupation=="Farmer")
 			{
-				header('Location: FarmersProfile.html');
+				header('Location: FarmersProfile.php');
 			}
 			if($occupation=="Dealer")
 			{

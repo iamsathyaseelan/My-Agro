@@ -15,9 +15,33 @@ if(isset($_POST["update"])){
 	$amt=$_POST["amt"];
 	$startdate=$_POST["startdate"];
 	$enddate=$_POST["enddate"];
-	$insert = mysql_query("UPDATE profile SET 
-		fname='".$fname."',lname='".$lname."',addr1='".$add1."',addr2='".$add2."',dist='".$dist."',state='".$state."',pin=$pin,acres=$acres,
-		cul=$cul,amt=$amt,startdate='".$startdate."',enddate='".$enddate."' WHERE uid=$sid");
+	$errors= array();
+	$file_name = $_FILES['profilepic']['name'];
+	$file_size =$_FILES['profilepic']['size'];
+	$file_tmp =$_FILES['profilepic']['tmp_name'];
+	$file_type=$_FILES['profilepic']['type'];
+	$file_ext=strtolower(end(explode('.',$_FILES['profilepic']['name'])));
+	$expensions= array("jpeg","jpg","png");
+	if(in_array($file_ext,$expensions)=== false){
+		$errors[]="<script>alert('extension not allowed, please choose a JPEG or PNG file.');</script>";
+	}
+	  
+	if($file_size > 2097152){
+		$errors[]="<script>alert('File size must be excately 2 MB');</script>";
+	}
+	  
+	if(empty($errors)==true){
+		$movefile=move_uploaded_file($file_tmp,"img/profilepic/$sid.$file_ext");
+		$profilepic ="img/profilepic/$sid.$file_ext";
+		
+		$update = mysql_query("UPDATE profile SET 
+			fname='".$fname."',lname='".$lname."',addr1='".$add1."',addr2='".$add2."',dist='".$dist."',state='".$state."',pin=$pin,acres=$acres,
+			cul=$cul,amt=$amt,startdate='".$startdate."',enddate='".$enddate."',profilepic='".$profilepic."' WHERE uid=$sid");
+		if($update)
+		{
+			echo '<script>alert("Success ! Your data updated successfully ");</script>';
+		}
+	}
 		
 }
 $sid=$_SESSION["id"];
@@ -82,12 +106,14 @@ else
 		</div>		
 		<div id="mySidenav" class="sidenav">
 			<a href="javascript:void(0)" class="closebtn" onClick="closeNav()"><i class="glyphicon glyphicon-minus"></i></a>
-			<a href="FarmersProfile.html" ><i class="glyphicon glyphicon-home"></i>&nbsp;Home</a>
+			<a href="FarmersProfile.php" ><i class="glyphicon glyphicon-home"></i>&nbsp;Home</a>
 			<a href="Profile.php" class="active"><i class="glyphicon glyphicon-user"></i>&nbsp;Profile</a>
 			<a href="bid/index.php"><i class="glyphicon glyphicon-king"></i>&nbsp;Bid</a>
 			<a href="Search.php"><i class="glyphicon glyphicon-search"></i>&nbsp;Search</a>
 			<a href="PublicChat.php"><i class="glyphicon glyphicon-envelope"></i>&nbsp;Chat</a>
-			<a href="#"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;Climate</a>
+			<a href="weather/index.html"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;Climate</a>
+			<a href="tips_add_tricks/index.html"><i class="glyphicon glyphicon-edit"></i>&nbsp;Tips and tricks</a>
+			<a href="Finance/index.php"><i class="glyphicon glyphicon-usd"></i>&nbsp;Finance</a>
 			<a href="Ecommerce/index.php"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;E-commerce</a>
 			<a href="Logout.php"><i class="glyphicon glyphicon-off"></i>&nbsp;Logout</a>
 		</div>
@@ -107,17 +133,18 @@ else
 							<input class = "form-input" type = "text" name = "add2" value="<?php echo $add21; ?>" placeholder = "Enter Address line 2">
 							<input class = "form-input" type = "text" name = "dist" value="<?php echo $dist1; ?>" placeholder = "Enter district name ">
 							<input class = "form-input" type = "text" name = "state" value="<?php echo $state1; ?>" placeholder = "Enter state name ">
-							<input class = "form-input" type = "text" name = "pin" value="<?php echo $pin1; ?>" placeholder = "Enter PIN code ">
+							<input class = "form-input" type = "number" name = "pin" value="<?php echo $pin1; ?>" placeholder = "Enter PIN code ">
+							Profile Picture<input type="file" name="profilepic">
 					</div>
 				</div>
 				<div class = "col-md-6">
 					<h3>Agriculture details </h3>
 					<div class = "form-content">
-							<input class = "form-input-2" type = "text" name = "acres" value="<?php echo $acres1; ?>" placeholder = "Number of acres" >
-							<input class = "form-input-2" type = "text" name = "cul" value="<?php echo $cul1; ?>" placeholder = "Acres to cultivate" >
-							<input class = "form-input" type = "text" name = "amt" value="<?php echo $amt1; ?>" placeholder = "Target amount to earn-this year ">
-							<input class = "form-input" type = "text" name = "startdate" value="<?php echo $startdate1; ?>" placeholder = "Target starts from">
-							<input class = "form-input" type = "text" name = "enddate" value="<?php echo $enddate1; ?>" placeholder = "Target ended at">
+							<input class = "form-input-2" type = "number" name = "acres" value="<?php echo $acres1; ?>" placeholder = "Number of acres" >
+							<input class = "form-input-2" type = "number" name = "cul" value="<?php echo $cul1; ?>" placeholder = "Acres to cultivate" >
+							<input class = "form-input" type = "number" name = "amt" value="<?php echo $amt1; ?>" placeholder = "Target amount to earn-this year ">
+							<input class = "form-input" type = "date" name = "startdate" value="<?php echo $startdate1; ?>" placeholder = "Target starts from">
+							<input class = "form-input" type = "date" name = "enddate" value="<?php echo $enddate1; ?>" placeholder = "Target ended at">
 					</div>
 				</div>
 				<div class ="col-md-12 text-right">

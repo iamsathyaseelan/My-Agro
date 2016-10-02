@@ -41,12 +41,13 @@ $sid=$_SESSION["id"];
 		</div>		
 		<div id="mySidenav" class="sidenav">
 			<a href="javascript:void(0)" class="closebtn" onClick="closeNav()"><i class="glyphicon glyphicon-minus"></i></a>
-			<a href="#"><i class="glyphicon glyphicon-home"></i>&nbsp;Home</a>
+			<a href="../FarmersProfile.php"><i class="glyphicon glyphicon-home"></i>&nbsp;Home</a>
 			<a href="../Profile.php"><i class="glyphicon glyphicon-user"></i>&nbsp;Profile</a>
-			<a href="index.php"  class="active"><i class="glyphicon glyphicon-king"></i>&nbsp;Bid</a>
-			<a href="#"><i class="glyphicon glyphicon-search"></i>&nbsp;Search</a>
+			<a href="index.php"  class="active"><i class="glyphicon glyphicon-king"></i>&nbsp;Bid</a><a href="../Search.php"><i class="glyphicon glyphicon-search"></i>&nbsp;Search</a>
 			<a href="../PublicChat.php"><i class="glyphicon glyphicon-envelope"></i>&nbsp;Chat</a>
-			<a href="#"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;Climate</a>
+			<a href="../weather/index.html"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;Climate</a>
+			<a href="../tips_add_tricks/index.html"><i class="glyphicon glyphicon-edit"></i>&nbsp;Tips and tricks</a>
+			<a href="../Finance/index.php"><i class="glyphicon glyphicon-usd"></i>&nbsp;Finance</a>
 			<a href="../Ecommerce/index.php"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;E-commerce</a>
 			<a href="../Logout.php"><i class="glyphicon glyphicon-off"></i>&nbsp;Logout</a>
 		</div>
@@ -59,7 +60,7 @@ $sid=$_SESSION["id"];
 					<div class="col-md-3 sidenavbar">
 						<div style="background:black;padding:8px 8px;color:white;font-weight:bold;text-align:center;">MENU</div>
 						<a href="admin/index.php"><i class="glyphicon glyphicon-tags"></i>&nbsp;Sell products</a>
-						<a href="../FarmersProfile.html"><i class="glyphicon glyphicon-arrow-left"></i>&nbsp;Back</a>
+						<a href="../FarmersProfile.php"><i class="glyphicon glyphicon-arrow-left"></i>&nbsp;Back</a>
 						<br><br>
 					</div>
 					<div class="col-md-9">
@@ -81,7 +82,7 @@ $sid=$_SESSION["id"];
 						<?php
 							include('../db/db.php');
 								
-							$sql_res=mysql_query("select * from bidproducts where postedby!=$sid and completed='OnGoing'");
+							$sql_res=mysql_query("select * from bidproducts where postedby!=$sid and completed='0'");
 							$count=mysql_num_rows($sql_res);
 							if($count>0)
 							{
