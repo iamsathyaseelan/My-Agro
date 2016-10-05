@@ -21,15 +21,10 @@ if($_SESSION['email']==""|| $_SESSION['pass']=="") {
 		<link rel="stylesheet" href="../css/ProfileStyle.css">
 	</head><!--/head-->
 	<body>
-		<script>
-			$(document).ready(function(){
-				load('CheckLogin.php');
-			});
-		</script>
 		<div class="header navbar-fixed-top">
 			<table>
 				<tr>
-					<td style = "color:white;width:1080px"><img src="../img/logo.png"></td>
+					<td style = "color:white;width:100%"><img src="../img/logo.png"></td>
 					<td style = "color:black;" class="text-right">
 						<button type="button" onClick="openNav()">
 							<i style="font-size:20px;" class="glyphicon glyphicon-menu-hamburger"></i>
@@ -63,21 +58,6 @@ if($_SESSION['email']==""|| $_SESSION['pass']=="") {
 						<br><br>
 					</div>
 					<div class="col-md-9">
-						<script>
-							function AddToCart(pid){
-								var dataString = 'pid='+ pid;
-								$.ajax({
-									type: "POST",
-									url: "AddToCart.php",
-									data: dataString,
-									cache: false,
-									success: function(html)
-									{
-										$("#CartItems").html(html).show();
-									}
-								});
-							}
-						</script>
 						<?php
 							include('../db/db.php');
 							$bidid=$_GET['proid'];
@@ -93,11 +73,28 @@ if($_SESSION['email']==""|| $_SESSION['pass']=="") {
 								$verified=$row['verified'];
 								echo '
 									<div class="col-md-12">
-										<div class="col-md-4">
+										<div class="col-md-3">
 											<img src="'. $img .'" alt="'. $descr .'" class="img img-responsive"  title="'. $descr .'" />
 										</div>
-										<div class="col-md-8">
-											<b>Name:</b>'.$name.'<br><b>Description:</b>'.$descr.'<br><b>Is Verified :</b>'.$verified.'<br><b>Price :</b>'.$price.'<br>;
+										<div class="col-md-9 table-responsive">
+											<table class="table table-striped">
+												<tr>
+													<td><b>Name</b></td>
+													<td>'.$name.'</td>
+												</tr>
+												<tr>
+													<td><b>Description</b></td>
+													<td>'.$descr.'</td>
+												</tr>
+												<tr>
+													<td><b>Is Verified</b></td>
+													<td>'.$verified.'</td>
+												</tr>
+												<tr>
+													<td><b>Price</b></td>
+													<td>'.$price.'</td>
+												</tr>
+											</table>
 										</div>
 									</div>
 								';
@@ -127,8 +124,8 @@ if($_SESSION['email']==""|| $_SESSION['pass']=="") {
 								<input type="number" required style="padding:5px;" placeholder="Enter your bid price" name="bidcost"><input type="submit" class="btn btn-success" name="bid" value="Bid now">
 							</form>
 						</div>
-						<div class="col-md-12">
-							<table width="100%">
+						<div class="col-md-12 table-responsive">
+							<table width="100%" class="table">
 							<?php
 								echo"<div class='col-md-12'><br><br></div>";
 								$select="SELECT * FROM `bid` WHERE proid='$bidid' ORDER BY id DESC ";

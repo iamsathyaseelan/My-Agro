@@ -63,6 +63,7 @@ if (isset($_POST['add'])) {
 		$sql = mysql_query("INSERT INTO bidproducts(`name`,`descr`, `price`,`quantity`,`img`,`postedby`) VALUES ('$product_name','$details',$price,'$quantity','$productpic',$sid)") or die (mysql_error());
 		if($sql)
 		{
+			echo "<script>aalert('Product was successfully added!');</script>";
 			header("location: Addproducts.php"); 
 		}else
 			echo "failed";

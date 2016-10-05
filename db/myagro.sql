@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 24, 2016 at 01:29 AM
+-- Generation Time: Oct 05, 2016 at 01:59 AM
 -- Server version: 5.1.53
 -- PHP Version: 5.3.4
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `bid` (
   `price` int(100) NOT NULL,
   `posistion` varchar(100) NOT NULL DEFAULT 'NotSelected',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 
 -- --------------------------------------------------------
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `bid` (
 CREATE TABLE IF NOT EXISTS `bidproducts` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `price` int(100) NOT NULL,
-  `quantity` int(100) NOT NULL,
+  `quantity` varchar(100) NOT NULL,
   `descr` varchar(100) NOT NULL,
   `name` varchar(100) NOT NULL,
   `dateadded` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -54,7 +54,49 @@ CREATE TABLE IF NOT EXISTS `bidproducts` (
   `completed` varchar(100) NOT NULL DEFAULT '0',
   `winnerId` int(10) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `finance`
+--
+
+CREATE TABLE IF NOT EXISTS `finance` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `price` int(100) NOT NULL,
+  `type` varchar(100) NOT NULL,
+  `datedo` date NOT NULL,
+  `postedby` int(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `follow`
+--
+
+CREATE TABLE IF NOT EXISTS `follow` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `follower` int(10) NOT NULL,
+  `followedby` int(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notification`
+--
+
+CREATE TABLE IF NOT EXISTS `notification` (
+  `nid` int(10) NOT NULL AUTO_INCREMENT,
+  `id` int(10) NOT NULL,
+  `msg` varchar(100) NOT NULL,
+  PRIMARY KEY (`nid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
 
 -- --------------------------------------------------------
 
@@ -73,8 +115,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `img` varchar(100) NOT NULL,
   `userid` int(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
-
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
 -- --------------------------------------------------------
 
@@ -91,7 +132,7 @@ CREATE TABLE IF NOT EXISTS `profile` (
   `dist` varchar(100) NOT NULL,
   `state` varchar(100) NOT NULL,
   `pin` int(100) NOT NULL,
-  `profilepic` varchar(100) NOT NULL,
+  `profilepic` varchar(100) NOT NULL DEFAULT 'img\\profilepic\\img.png',
   `acres` int(100) NOT NULL,
   `cul` int(100) NOT NULL,
   `amt` int(100) NOT NULL,
@@ -99,7 +140,7 @@ CREATE TABLE IF NOT EXISTS `profile` (
   `enddate` date NOT NULL,
   `uid` int(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 -- --------------------------------------------------------
 
@@ -114,6 +155,10 @@ CREATE TABLE IF NOT EXISTS `publicchat` (
   `dandt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+
+--
+-- Dumping data for table `publicchat`
+--
 
 
 -- --------------------------------------------------------
@@ -131,21 +176,4 @@ CREATE TABLE IF NOT EXISTS `register` (
   `pass` varchar(100) NOT NULL,
   `occupation` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
-
-
--- --------------------------------------------------------
-
---
--- Table structure for table `finance`
---
-
-CREATE TABLE IF NOT EXISTS `finance` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
-  `price` int(100) NOT NULL,
-  `type` varchar(100) NOT NULL,
-  `datedo` date NOT NULL,
-  `postedby` int(100) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;

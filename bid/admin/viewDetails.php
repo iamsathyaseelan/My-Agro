@@ -12,9 +12,10 @@ if(isset($_POST['winner']))
 	$bidid=$_GET['proid'];
 	$setwinner=mysql_query("UPDATE `bid` SET `posistion` = 'Winner' WHERE `id` = $winnerid");
 	$setCompleted=mysql_query("UPDATE `bidproducts` SET `completed`= 1,`winnerId`=$bidderid WHERE `id` = $bidid");
+	$notification=mysql_query("INSERT INTO `notification` (`id`, `msg`) VALUES ( '$bidderid', '".$_SESSION['uname']." selected you as Bid winner')");
 	if($setwinner && $setCompleted)
 	echo'<script>
-		alert("hi");
+		alert("You successfully select winner!");
 	</script>';
 	else
 	echo'<script>
@@ -38,11 +39,6 @@ if(isset($_POST['winner']))
 		<link rel="stylesheet" href="../../css/ProfileStyle.css">
 	</head><!--/head-->
 	<body>
-		<script>
-			$(document).ready(function(){
-				load('CheckLogin.php');
-			});
-		</script>
 		<div class="header navbar-fixed-top">
 			<table>
 				<tr>

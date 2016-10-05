@@ -81,11 +81,13 @@ $sid=$_SESSION["id"];
 										$quantity = $row["quantity"];
 										$price = $row["price"];
 										echo '
+										<tr>
 											<td>'.$name.'</td>
 											<td>'.$price.'</td>
 											<td>'.$quantity.'</td>
 											<td>'.$descr.'</td>
 											<td><a href="viewDetails.php?proid='.$id.'" role="button" class="btn btn-success">Go</a></td>
+										</tr>
 										';
 									}
 								}
