@@ -1,21 +1,3 @@
-<?php
-session_start();
-require_once("db/db.php");
-if(isset($_POST["msg"])){
- 	$sid=$_SESSION["id"];
-	$msg=$_POST["txtmsg"];
-	$sql = "INSERT INTO `publicchat` (`sid`, `msg`) VALUES ($sid, '$msg')";
-	$insert=mysql_query($sql);
-	if($insert)
-	{
-		echo "Your message sent";
-	}
-	else
-	{
-		echo "Some error occoured";
-	}
- }
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,13 +12,16 @@ if(isset($_POST["msg"])){
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		<script src="js/prefixfree.min.js"></script>
 		<link rel="stylesheet" href="css/ProfileStyle.css">
-	</head><!--/head-->
-	<body>
 		<script>
 			$(document).ready(function(){
-				load('CheckLogin.php');
+				setInterval(function() {
+					$("#messages").load("logs.php");
+				}, 1000);
 			});
+
 		</script>
+	</head><!--/head-->
+	<body>
 		<div class="header navbar-fixed-top">
 			<table>
 				<tr>
@@ -75,10 +60,11 @@ if(isset($_POST["msg"])){
 							<div class="panel-heading">
 								<h3>Public Chat</h3>
 							</div>
-							<div class="panel-body msgs">
-							<table class="table table-striped">
-								<tbody>
+							<div class="panel-body msgs" >
+							<table class="table table-striped" id="messages">
 								<?php
+									require_once("db/db.php");
+									session_start();
 									 $select="SELECT * FROM `publicchat` ORDER BY id DESC LIMIT 10";
 									 $color="";
 									 $do=mysql_query($select);
@@ -104,16 +90,25 @@ if(isset($_POST["msg"])){
 										}
 									 }
 								?>
-								
-									</tbody>
 								</table>
 							</div>
 							<div class="panel-footer text-center">
-								<form action="" method="post">
-									<input type="text" name="txtmsg" class="msg-box" placeholder="Enter message to send";>
-									<button class="btn btn-success" type ="submit" name ="msg"><span class="glyphicon glyphicon-send"></span></button>
-								</form>
+								<input type="text" id="txtmsg" class="msg-box" placeholder="Enter message to send";>
+								<button class="btn btn-success" onclick ="insertchat()"><span class="glyphicon glyphicon-send"></span></button>
 							</div>
+							<script>
+								function insertchat()
+								{
+									var msgs=document.getElementById('txtmsg').value;
+									var dataString = 'msg='+ msgs;
+									$.ajax({
+										type: "POST",
+										url: "insertchat.php",
+										data: dataString,
+										cache: false
+									});
+								}
+							</script>
 						</div>
 				</div>
 				<div class = "col-md-3">

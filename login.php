@@ -16,6 +16,7 @@
 		{
 			$occupation=$row['occupation'];
 			$_SESSION['id']=$row['id'];
+			$_SESSION['uname']=$row['uname'];
 			if($occupation=="Industrialists")
 			{
 				header('Location: IndustrialistsProfile.html');

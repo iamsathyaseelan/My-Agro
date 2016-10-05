@@ -1,3 +1,13 @@
+<?php
+require_once("db/db.php");
+session_start();
+if($_SESSION['email']==""|| $_SESSION['pass']=="") 
+{
+    header("location: ../login.html"); 
+    exit();
+}
+$sid=$_SESSION["id"];
+?>
 <!DOCTYPE html>
 <html >
   <head>
@@ -95,17 +105,22 @@
 					<div class="col-md-6">
 						<div class="panel panel-default">
 							<div class="panel-heading">
-								<h3>Notifications <span class="badge">5</span></h3>
+								<h3>Notifications</h3>
 							</div>
-							<div class="panel-body">
-								<a href="#">Someone send you an follow request</a><br>
-								<a href="#">Someone accept you an follow request</a><br>
-								<a href="#">Someone send you an follow request</a><br>
-								<a href="#">Someone send you an follow request</a><br>
-								<a href="#">Someone send you an follow request</a><br>
+							<div class="panel-body" style="max-height:300px;scroll:auto;">
+								<table class="table table-striped">
+									<?php
+										$notification=mysql_query("SELECT * FROM notification WHERE id='$sid' ORDER BY `nid` DESC  LIMIT 10");
+										while($row=mysql_fetch_array($notification))
+										{
+											$msg=$row['msg'];
+											echo '<tr><td>'.$msg.'</td></tr>';
+										}
+									?>
+								</table>
 							</div>
 							<div class="panel-footer text-center">
-								<button class="btn btn-primary">Show all</button>
+								<a class="btn btn-primary" role="button" href="notification.php">Show all</a>
 							</div>
 						</div>
 					</div>
@@ -128,50 +143,31 @@
 								<h3>peoples to follow </h3>
 							</div>
 							<div class="panel-body">
-								<div class="col-md-3 col-sm-6">
-									<img src="img/img.png" class="img img-rounded  img-responsive">
-									<div class="btn-group btn-group-justified">
-									    <div class="btn-group">
-									      <button type="button" class="btn btn-success">follow</button>
-									    </div>
-									    <div class="btn-group">
-									      <button type="button" class="btn btn-info">view profile</button>
-									    </div>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-6">
-									<img src="img/img.png" class="img img-rounded  img-responsive">
-									<div class="btn-group btn-group-justified">
-									    <div class="btn-group">
-									      <button type="button" class="btn btn-success">follow</button>
-									    </div>
-									    <div class="btn-group">
-									      <button type="button" class="btn btn-info">view profile</button>
-									    </div>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-6">
-									<img src="img/img.png" class="img img-rounded  img-responsive">
-									<div class="btn-group btn-group-justified">
-									    <div class="btn-group">
-									      <button type="button" class="btn btn-success">follow</button>
-									    </div>
-									    <div class="btn-group">
-									      <button type="button" class="btn btn-info">view profile</button>
-									    </div>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-6">
-									<img src="img/img.png" class="img img-rounded  img-responsive">
-									<div class="btn-group btn-group-justified">
-									    <div class="btn-group">
-									      <button type="button" class="btn btn-success">follow</button>
-									    </div>
-									    <div class="btn-group">
-									      <button type="button" class="btn btn-info">view profile</button>
-									    </div>
-									</div>
-								</div>
+								<?php
+								$sql_res=mysql_query("select * from profile where  uid!='$sid'");
+								$count=mysql_num_rows($sql_res);
+								if($count>0)
+								{
+									while($row=mysql_fetch_array($sql_res))
+									{
+										$uid=$row['uid'];
+										$fname=$row['fname'];
+										$lname=$row['lname'];
+										$img=$row['profilepic'];
+										echo'
+											<div class="col-md-3 text-center">
+												<img src="'.$img.'" class="img img-rounded  img-responsive">
+												<p>'.$fname.'&nbsp;'.$fname.'</p>
+												<a href="ViewProfile.php?uid='.$uid.'" role="button" class="btn btn-success">View profile</a>
+											</div>
+										';
+									}
+								}
+								else 
+								{
+									$result= "No result found!";
+								}
+								?>
 							</div>
 						</div>
 					</div>
