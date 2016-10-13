@@ -3,10 +3,7 @@ We can automate our agricultural work in easy way and we can sell,buy and bid an
 # Our team
 We are a group of students tries to reduce formers suicide and increasing their profit.
 our team consists of 4 members
-Sathyaseelan.S,
-Maheshwaran.G,
-A.S.Gowtham kumar and
-Siva prakash.M
+**Sathyaseelan.S,Maheshwaran.G,A.S.Gowtham kumar and Siva prakash.M
 # How to test this application
 Its so easy to test this application.All you need is server.it may be localhost or any server
 * Download and install WAMP server and copy all the files to WWW directory.
