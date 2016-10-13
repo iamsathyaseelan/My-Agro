@@ -9,10 +9,10 @@ A.S.Gowtham kumar and
 Siva prakash.M
 # How to test this application
 Its so easy to test this application.All you need is server.it may be localhost or any server
-1. Download and install WAMP server and copy all the files to WWW directory.
-2. Open phpmyadmin in localhost and create database with name of myagro
-3. Then import SQL file into database.
-4. Open localhost and navigate to our app by giving url in address bar URL: http://localhost/myagro
+1.Download and install WAMP server and copy all the files to WWW directory.
+2.Open phpmyadmin in localhost and create database with name of myagro
+3.Then import SQL file into database.
+4.Open localhost and navigate to our app by giving url in address bar URL: http://localhost/myagro
 # Our wish
 We feel very hapy to participate in this contest.
 Thank you.
